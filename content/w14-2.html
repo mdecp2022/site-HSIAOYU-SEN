@@ -2,7 +2,7 @@
         <head>
         <title>cmsite</title>
         <meta charset="utf-8">
-<meta property="head" content="H2">
+<meta property="head" content="H3">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700,900" rel="stylesheet">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
@@ -141,25 +141,22 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">w12-1 << <a href='w12-1.html'>Previous</a> <a href='w14.html'>Next</a> >> w14<br /><h1>w13</h1>
-<p><a href="https://mdecp2022.github.io/site-HSIAOYU-SEN/content/Brython.html?src=https://gist.githubusercontent.com/HSIAOYU-SEN/ecbda2cd416bfbb0eec62f8b8d78d0ee/raw/9bf6708c471993e36ef4062fd3c40a5633fb7758/w13_temp_ex1.py">溫度傳換程式</a></p>
-<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">'''
-f = c*9/5 + 32
-c = (f-32)*5/9
-'''
-c = input("請輸入攝氏溫度值")
-#print(type(c))
-c = float(c)
-print(c, c*9/5 +32)</pre>
-<p><a href="https://mdecp2022.github.io/site-HSIAOYU-SEN/content/Brython.html?src=https://gist.githubusercontent.com/HSIAOYU-SEN/ecbda2cd416bfbb0eec62f8b8d78d0ee/raw/9bf6708c471993e36ef4062fd3c40a5633fb7758/w13_temp_ex2.py">w13_temp_ex2</a></p>
-<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">'''
-f = c*9/5 + 32
-c = (f-32)*5/9
-'''
-c = input("請輸入攝氏溫度值")
-#print(type(c))
-c = float(c)
-print("你輸入的攝氏溫度: " + str(c), "等於華氏溫度:" + str(c*9/5 +32))</pre>
+    <div id="tipue_search_content">w14 << <a href='w14.html'>Previous</a> <a href='cp2022.html'>Next</a> >> cp2022<br /><h1>w14-2</h1>
+<!-- 
+在動態網站頁面中啟用 Brython 執行環境的用法, 請注意動態網站執行所在路徑
+-->
+<script src="./../cmsimde/static/brython.js"></script>
+<script src="./../cmsimde/static/brython_stdlib.js"></script>
+<!-- 啟動 Brython -->
+<p>
+<script>
+window.onload=function(){
+brython({debug:1, pythonpath:['./../cmsimde/static/','/downloads/py/']});
+}
+</script>
+</p>
+<p><button id="btn1">取使用者輸入</button></p>
+<div id="brython_div"></div>
 <p>
 <script type="text/python">
 from browser import html, document
@@ -183,7 +180,7 @@ def get_input(env):
 document["btn1"].bind('click', get_input)
 </script>
 </p>
-<br />w12-1 << <a href='w12-1.html'>Previous</a> <a href='w14.html'>Next</a> >> w14</div>
+<p>建立按鈕, 按下按鈕後才執行特定的程式內容</p><br />w14 << <a href='w14.html'>Previous</a> <a href='cp2022.html'>Next</a> >> cp2022</div>
         
     <!-- footer -->
       <div class="container">
