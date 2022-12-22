@@ -1,6 +1,36 @@
-<h1>About</h1>
-<p>cmsite: wcms use <a href="https://github.com/mdecycu/cmsimde">https://github.com/mdecycu/cmsimde</a> as submodule</p>
-<h1>HW</h1>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># 導入亂數模組
+import random
+# 導入字串模組
+import string
+# 利用 def 關鍵字定義函式
+# 函式的輸入變數可以設定初始值
+def password_generator(size=4, chars=string.ascii_lowercase + string.digits):
+    # 函式內以多行註解說明函式功能
+    """Generate random password
+    """
+    # 利用 return 關鍵字將所產生的亂數字串傳回
+    return ''.join(random.choice(chars) for _ in range(size))
+# 建立一個變數與隨後的字串對應
+pass_string = "abcdefghkmnpqrstuwxyz123456789"
+# 利用重複迴圈呼叫 password_generator() 函式 10 次
+for i in range(10):
+    print(password_generator(4, pass_string))</pre><p><a href="https://gist.githubusercontent.com/HSIAOYU-SEN/38bd45f533357a8ffb7d756b734815d6/raw/77284278dcc0df1cb72a00022d2264274b830d2c/password_generator.py">w5 password_generator</a></p><h1>About</h1><p><a href="https://mdecp2022.github.io/site-HSIAOYU-SEN/content/Brython.html?src=https://gist.githubusercontent.com/HSIAOYU-SEN/38bd45f533357a8ffb7d756b734815d6/raw/77284278dcc0df1cb72a00022d2264274b830d2c/password_generator.py">w5 password_generator</a></p><pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># 導入亂數模組
+import random
+# 導入字串模組
+import string
+# 利用 def 關鍵字定義函式
+# 函式的輸入變數可以設定初始值
+def password_generator(size=4, chars=string.ascii_lowercase + string.digits):
+    # 函式內以多行註解說明函式功能
+    """Generate random password
+    """
+    # 利用 return 關鍵字將所產生的亂數字串傳回
+    return ''.join(random.choice(chars) for _ in range(size))
+# 建立一個變數與隨後的字串對應
+pass_string = "abcdefghkmnpqrstuwxyz123456789"
+# 利用重複迴圈呼叫 password_generator() 函式 10 次
+for i in range(10):
+    print(password_generator(4, pass_string))</pre><p>cmsite: wcms use <a href="https://github.com/mdecycu/cmsimde">https://github.com/mdecycu/cmsimde</a> as submodule</p><p>心得:利用密碼產生器產生亂數</p><h1>HW</h1>
 <h2>w12</h2>
 <p><a href="https://mdecp2022.github.io/site-HSIAOYU-SEN/content/Brython.html?src=https://gist.githubusercontent.com/HSIAOYU-SEN/cfbd92bf8e53721303744ba1a4c02285/raw/588200e34e7163389d29ce6c697fb688d0aa960e/w12_hw_ex1.py">ex1</a></p>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># Brython 的 input() 可以接受輸入提示字串, 跳出瀏覽器輸入表單後, 將輸入內容以字串取回
@@ -215,7 +245,7 @@ document["btn1"].bind('click', get_input)
 <p>A:他的Brython很強、很厲害</p>
 <p>7.變數, 字串, 整數, 浮點數, 數列, Tuple, Dictionary, 函式, 重複迴圈, class, 物件導向, 資料庫, 這些名詞對您而言代表甚麼?</p>
 <p>A:艱難的專業術語</p><h1>cp2022</h1>
-<p><a href="https://mdecp2022.github.io/site-HSIAOYU-SEN/content/cp2022.html?src=https://gist.githubusercontent.com/HSIAOYU-SEN/83b8279f2b0525ff50cdda71561f708f/raw/d9c48e3641974a4b7cec4416a2ad9f223a5dc2ad/random_draw_1a.py&amp;src2=https://gist.githubusercontent.com/HSIAOYU-SEN/83b8279f2b0525ff50cdda71561f708f/raw/d9c48e3641974a4b7cec4416a2ad9f223a5dc2ad/random_draw_1a.py">w6_test1</a></p>
+<p><a href="https://mdecp2022.github.io/site-HSIAOYU-SEN/content/cp2022.html?src=https://gist.githubusercontent.com/HSIAOYU-SEN/83b8279f2b0525ff50cdda71561f708f/raw/d9c48e3641974a4b7cec4416a2ad9f223a5dc2ad/random_draw_1a.py&amp;src2=https://gist.githubusercontent.com/HSIAOYU-SEN/83b8279f2b0525ff50cdda71561f708f/raw/538addbb9aa27111856f32c8a380bc84555e65ee/list_1a_static_site.py">w6_test1</a></p>
 <p><a href="https://en.wikipedia.org/wiki/Python_(programming_language)">https://en.wikipedia.org/wiki/Python_(programming_language)</a></p>
 <h4>Examples:</h4>
 <p style="padding-left: 30px;"><a href="https://gist.github.com/mdecycu/d9082d678096bd58378d6afe2c7fa05d">https://gist.github.com/mdecycu/d9082d678096bd58378d6afe2c7fa05d</a></p>
