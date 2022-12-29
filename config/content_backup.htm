@@ -1,5 +1,6 @@
 <h1>About</h1>
-<p>cmsite: wcms use <a href="https://github.com/mdecp2022/site-HSIAOYU-SEN">https://github.com/mdecycu/HSIAOYU-SEN</a> as submodule</p><h1>HW</h1>
+<p>cmsite: wcms use <a href="https://github.com/mdecp2022/site-HSIAOYU-SEN">https://github.com/mdecycu/HSIAOYU-SEN</a> as submodule</p>
+<h1>HW</h1>
 <h2>w5</h2>
 <p><a href="https://mdecp2022.github.io/site-HSIAOYU-SEN/content/Brython.html?src=https://gist.githubusercontent.com/HSIAOYU-SEN/38bd45f533357a8ffb7d756b734815d6/raw/77284278dcc0df1cb72a00022d2264274b830d2c/password_generator.py">點這裡執行password_generator</a></p>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># 導入亂數模組
@@ -19,10 +20,61 @@ pass_string = "abcdefghkmnpqrstuwxyz123456789"
 # 利用重複迴圈呼叫 password_generator() 函式 10 次
 for i in range(10):
     print(password_generator(4, pass_string))</pre>
-<p>心得:利用密碼產生器產生亂數取得較為安全的密碼</p><h2>w6</h2>
+<p>心得:利用密碼產生器產生亂數取得較為安全的密碼</p>
+<h2>w6</h2>
 <p><a href="https://mdecp2022.github.io/site-HSIAOYU-SEN/content/Brython.html?src=https://gist.githubusercontent.com/HSIAOYU-SEN/83b8279f2b0525ff50cdda71561f708f/raw/66266a825637a49fd8d68d4ad2460d0e8d0d4c52/random_draw_1a.py&amp;src2=https://gist.githubusercontent.com/HSIAOYU-SEN/83b8279f2b0525ff50cdda71561f708f/raw/66266a825637a49fd8d68d4ad2460d0e8d0d4c52/list_1a_static_site.py">抽點程式</a></p>
 <p>心得:剛開始覺得複雜，但漸漸地能清楚在做什麼</p>
-<h2>w12</h2>
+<h2>w10</h2>
+<p><a href="https://mdecp2022.github.io/site-HSIAOYU-SEN/content/Brython.html?src=https://gist.githubusercontent.com/HSIAOYU-SEN/ffb3774ceeff59b4bc792837de62c14e/raw/0ef20d4e2d4b301e702e01cfd77d3c16ef346f4a/hw_1">列出缺考名單及分數</a></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">import ast
+ 
+# get stud_list first
+ 
+def get_stud(c_name):
+    courses = {"1a": "0747", "1b": "0761", "2a": "0773", "2b": "0786"}
+    #c_name = "1b"
+    c = courses[c_name]
+    url = "https://nfu.cycu.org/?semester=1111&amp;courseno=" + c + "&amp;column=True"
+    data = open(url).read().split("\n")
+    stud = data[:-1]
+    return stud
+     
+cp_stud = get_stud("1b")
+ 
+# get w10 quiz result
+cp_w10_quiz_url = "https://gist.githubusercontent.com/mdecycu/9df4b372ac1b7386cf259ced15f1a2b2/raw/a6825f13b1bb0b61e09e74dd117729eefe1d947f/20221110_cp1b_w10_quiz.json"
+ 
+def get_score(url):
+    json_data = open(url).read()
+    big_dict = ast.literal_eval(json_data)
+    data = big_dict["body"]["testuser"]
+    quiz_dict = {}
+    for i in data:
+        stud_id = data[i]["user_name"]
+        stud_score = int(float(data[i]["total_score"]))
+        quiz_dict[stud_id] = stud_score
+    return quiz_dict
+     
+cp_quiz = get_score(cp_w10_quiz_url)
+cp_abs = []
+for stud in cp_stud:
+    try:
+        print(stud, cp_quiz[stud])
+    except:
+        # 缺考者沒有 quiz 成績
+        print(stud, "缺")
+        cp_abs.append(stud)
+# 列出缺考名單
+print("="*20)
+print("以下為 w10 缺考名單:")
+for stud in cp_abs:
+    print(stud)</pre>
+<p></p>
+<p><a href="https://mdecp2022.github.io/site-HSIAOYU-SEN/content/Brython.html?src=https://gist.githubusercontent.com/HSIAOYU-SEN/ffb3774ceeff59b4bc792837de62c14e/raw/a24c669620b61cd376fc38b2e0f8b92312ceb964/hw_2">HW-2 for迴圈</a></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">A = [i for i in range(1,10,2)]
+print(A)</pre>
+<p></p>
+<p>心得:對for迴圈有了進一步的了解</p><h2>w12</h2>
 <p><a href="https://mdecp2022.github.io/site-HSIAOYU-SEN/content/Brython.html?src=https://gist.githubusercontent.com/HSIAOYU-SEN/cfbd92bf8e53721303744ba1a4c02285/raw/588200e34e7163389d29ce6c697fb688d0aa960e/w12_hw_ex1.py">ex1</a></p>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># Brython 的 input() 可以接受輸入提示字串, 跳出瀏覽器輸入表單後, 將輸入內容以字串取回
 user_input_temp = input("請輸入攝氏溫度值:")
@@ -144,7 +196,7 @@ def get_input(env):
 document["btn1"].bind('click', get_input)
 </script>
 </p>
-<p>加入如何使用按鈕啟動 get_input 函式 </p>
+<p>這是按鈕，輸入什麼數字就會跑出來</p>
 <pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">&lt;h3&gt;w14&lt;/h3&gt;
 &lt;!-- 
 在動態網站頁面中啟用 Brython 執行環境的用法, 請注意動態網站執行所在路徑
@@ -178,8 +230,7 @@ brython_div &lt;= user_input_temp
 // ]]&gt;&lt;/script&gt;
 &lt;/p&gt;</pre>
 <p><br/><br/></p>
-<p>心得:成功做出按鈕!</p>
-<h2>w14-2</h2>
+<p>心得:成功做出按鈕!</p><h2>w14-2</h2>
 <!-- 
 在動態網站頁面中啟用 Brython 執行環境的用法, 請注意動態網站執行所在路徑
 -->
@@ -240,7 +291,7 @@ document["btn1"].bind('click', get_input)
 <h3>15-2</h3>
 <p><a href="https://mdecp2022.github.io/site-HSIAOYU-SEN/content/Brython.html?src=https://gist.githubusercontent.com/HSIAOYU-SEN/a5d0782e1c21fbe677e8a51bd7d06fb7/raw/5972c7176b6af1c6963d9c0ea8dbd2c38e16ae34/w15_8%25E5%25AD%2597%25E8%25B5%25B0">繞8字走</a></p>
 <p></p>
-<h3>rect_walk</h3>
+<h3>繞8字走</h3>
 <!-- 納入 Brython 環境 -->
 <script src="/static/brython.js"></script>
 <script src="/static/brython_stdlib.js"></script>
@@ -447,7 +498,8 @@ grid(origx, origy, w, h, wnum, hnum, pixel=1, color="black")
 
 doc["power"].bind("click", launchAnimation)
 #browser.timer.set_interval(game, 100)
-</script><h1>cp2022</h1>
+</script>
+<h1>cp2022</h1>
 <p></p>
 <p><a href="https://en.wikipedia.org/wiki/Python_(programming_language)">https://en.wikipedia.org/wiki/Python_(programming_language)</a></p>
 <h4>Examples:</h4>
